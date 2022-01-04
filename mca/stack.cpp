@@ -37,6 +37,7 @@ int Stack::pop(){
     } else {
         cout << "Stack underflow\n";
     }
+    return 0;
 }
 
 int Stack::peek() {
@@ -58,10 +59,12 @@ bool Stack::isFull() {
 //Driver program to test above functions
 int main(){
     class Stack s;
-    s.push(100);
-    s.push(200);
-    s.push(300);
-    s.push(999);
+    // s.push(100);
+    // s.push(200);
+    // s.push(300);
+    // s.push(999);
+    for(int n=1; n <=10; n++)
+    s.push(n);
     cout << s.pop() << " popped from stack\n";
     //print all elements of stack
     cout << "Elements of stacks\n";
