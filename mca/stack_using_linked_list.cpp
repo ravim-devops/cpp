@@ -2,14 +2,14 @@
 using std::cout;
 using std::cin;
 
-//declaring linked list node
+//declaring linked list node, linked list node has 2 component- data and link to next node and where to start =top/head
 
 struct Node
 {
     int data;
     struct Node* link;
 };
-
+//initializing Node to a memory reference and assigning it as top
 struct  Node* top;
 
 //function to add elements in stack
@@ -24,11 +24,11 @@ void push(int data)
         cout << "\nheap overflow";
         exit(1);
     }
-    //initialize data into temp
+    //initialize data into temp with value received as input parameter
     temp->data = data;
-    //top pointer to temp link
+    //new temp node link to point to prev top pointer address as we are implementing stack function call 
     temp->link = top;
-    //make temp as top of stack
+    //make node temp as top of stack
     top = temp;
 }
 int isEmpty()
@@ -53,17 +53,17 @@ void pop()
     }
     else
     {
-      //top to temp
+      //save address of top to temp for reference
       temp = top;
-      //second node to temp
+      //assign top address to second node address i.e link
       top = top->link;
-      //remove connection b/w first and second
+      //removing connection between first and second by pointing link of top to NULL
       temp->link = NULL;
       //release memory of top node
       free(temp);  
     }
 }
-//function to print elements of stack
+//display function to print elements of stack using linked list
 void display()
 {
     struct Node* temp;
@@ -77,13 +77,14 @@ void display()
         temp = top;
         while (temp != NULL)
         {
+            //display top node data with -> and point it to next node and keep traversing until it find link = NULL
             cout << temp->data << "-> ";
             temp = temp->link;
         }
     }
 }
 
-//driver code
+//driver code for linked list
 int main()
 {
     //pushing elements in stack
